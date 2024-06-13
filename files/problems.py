@@ -1,8 +1,8 @@
-from enum import Enum, auto, StrEnum
-import random
-import pickle
-from abc import ABC, abstractmethod
 import collections
+import pickle
+import random
+from abc import ABC, abstractmethod
+from enum import Enum, StrEnum, auto
 
 
 class ElementType(Enum):
@@ -155,7 +155,7 @@ class Problem(ABC):
     @abstractmethod
     def data_sample(self, element):
         """
-        Returns a sample of data for a given element.
+        Returns a sample of data for a given elemen elemen.
         """
         return element.data
     
