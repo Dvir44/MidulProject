@@ -1,7 +1,7 @@
-from simulator import Simulator
 from planners import Planner
 from problems import HealthcareProblem
 from reporter import EventLogReporter
+from simulator import Simulator
 
 
 class NaivePlanner(Planner):
@@ -22,7 +22,7 @@ class NaivePlanner(Planner):
         return planned_elements
     
 
-planner = NaivePlanner("./temp/event_log.csv", ["diagnosis"])
+planner = NaivePlanner("C:/Users/dvirg/OneDrive/Desktop/toar1/year4/SEMESTER B/midul/MidulProject/event_log.csv", ["diagnosis"])
 problem = HealthcareProblem()
 simulator = Simulator(planner, problem)
 result = simulator.run(365*24)
