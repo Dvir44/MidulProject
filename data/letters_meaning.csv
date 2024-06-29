@@ -1,0 +1,10 @@
+Word,Group
+ER_treatment,a
+emergency_patient,b
+releasing,c
+patient_left_due_to_long_wait,d
+time_for_intake,e
+surgery,f
+patient_referal,g
+nursing,h
+intake,i
