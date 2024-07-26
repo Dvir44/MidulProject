@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<pnml>
+  <net id="alpha_classic_net_1721749340.9193413" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+    <name>
+      <text>alpha_classic_net_1721749340.9193413</text>
+    </name>
+    <page id="n0">
+      <place id="end">
+        <name>
+          <text>end</text>
+        </name>
+      </place>
+      <place id="({'patient_referal'}, {'patient_left_due_to_long_wait'})">
+        <name>
+          <text>({'patient_referal'}, {'patient_left_due_to_long_wait'})</text>
+        </name>
+      </place>
+      <place id="start">
+        <name>
+          <text>start</text>
+        </name>
+        <initialMarking>
+          <text>1</text>
+        </initialMarking>
+      </place>
+      <place id="({'emergency_patient'}, {'releasing'})">
+        <name>
+          <text>({'emergency_patient'}, {'releasing'})</text>
+        </name>
+      </place>
+      <place id="({'ER_treatment'}, {'releasing'})">
+        <name>
+          <text>({'ER_treatment'}, {'releasing'})</text>
+        </name>
+      </place>
+      <transition id="emergency_patient">
+        <name>
+          <text>emergency_patient</text>
+        </name>
+      </transition>
+      <transition id="ER_treatment">
+        <name>
+          <text>ER_treatment</text>
+        </name>
+      </transition>
+      <transition id="releasing">
+        <name>
+          <text>releasing</text>
+        </name>
+      </transition>
+      <transition id="nursing">
+        <name>
+          <text>nursing</text>
+        </name>
+      </transition>
+      <transition id="patient_referal">
+        <name>
+          <text>patient_referal</text>
+        </name>
+      </transition>
+      <transition id="surgery">
+        <name>
+          <text>surgery</text>
+        </name>
+      </transition>
+      <transition id="patient_left_due_to_long_wait">
+        <name>
+          <text>patient_left_due_to_long_wait</text>
+        </name>
+      </transition>
+      <arc id="2023655105152" source="start" target="ER_treatment"/>
+      <arc id="2023655105920" source="surgery" target="end"/>
+      <arc id="2023655106688" source="ER_treatment" target="({'ER_treatment'}, {'releasing'})"/>
+      <arc id="2023655106064" source="emergency_patient" target="end"/>
+      <arc id="2023655106832" source="emergency_patient" target="({'emergency_patient'}, {'releasing'})"/>
+      <arc id="2023655104672" source="start" target="emergency_patient"/>
+      <arc id="2023655105056" source="start" target="releasing"/>
+      <arc id="2023655106976" source="({'ER_treatment'}, {'releasing'})" target="releasing"/>
+      <arc id="2023655105968" source="releasing" target="end"/>
+      <arc id="2023655105584" source="ER_treatment" target="end"/>
+      <arc id="2023655104576" source="start" target="nursing"/>
+      <arc id="2023655105344" source="start" target="patient_referal"/>
+      <arc id="2023655106496" source="patient_referal" target="({'patient_referal'}, {'patient_left_due_to_long_wait'})"/>
+      <arc id="2023655106880" source="({'emergency_patient'}, {'releasing'})" target="releasing"/>
+      <arc id="2023655105248" source="start" target="surgery"/>
+      <arc id="2023655105632" source="nursing" target="end"/>
+      <arc id="2023655106400" source="({'patient_referal'}, {'patient_left_due_to_long_wait'})" target="patient_left_due_to_long_wait"/>
+      <arc id="2023655105392" source="start" target="patient_left_due_to_long_wait"/>
+      <arc id="2023655105776" source="patient_referal" target="end"/>
+      <arc id="2023655106160" source="patient_left_due_to_long_wait" target="end"/>
+    </page>
+    <finalmarkings>
+      <marking>
+        <place idref="end">
+          <text>1</text>
+        </place>
+      </marking>
+    </finalmarkings>
+  </net>
+</pnml>
